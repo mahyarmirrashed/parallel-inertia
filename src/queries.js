@@ -20,6 +20,15 @@ const createCookie = async (username) => {
   }
 };
 
+const createHabit = async (username, name, description, daysOfWeek) =>
+  new Habit({
+    uuid: uuidv4(),
+    username: username,
+    name: name,
+    description: description,
+    daysOfWeek: daysOfWeek,
+  }).save();
+
 const createUser = async (username, password) =>
   new User({ username: username, password: password }).save();
 
@@ -38,6 +47,7 @@ const userIsValid = async (username, password) =>
 
 module.exports = {
   createCookie,
+  createHabit,
   createUser,
   cookieExists,
   getHabits,

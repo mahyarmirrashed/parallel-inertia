@@ -30,20 +30,44 @@ router.post('/login', async (_, res) => {
 });
 
 router.post('/habit', async (req, res) => {
-  res.send({});
+  let body = {};
+  let cookie = helpers.extractCookie(req);
+
+  if (await queries.cookieExists(cookie)) {
+    const username = await queries.getUser(cookie);
+
+    try {
+      const habit = await queries.createHabit(
+        username,
+        req.body.name,
+        req.body.description,
+        req.body.daysOfWeek,
+      );
+
+      let body = { habitId: habit.uuid };
+
+      res.status(codes.CREATED);
+    } catch {
+      res.status(codes.BAD_REQUEST);
+    }
+  } else {
+    res.status(codes.UNAUTHORIZED);
+  }
+
+  res.send(body);
 });
 
-router.patch('/habit:id', async (req, res) => {
-  res.send({});
-});
+//router.patch('/habit:uuid', async (req, res) => {
+//  res.send({});
+//});
 
-router.delete('/habit:id', async (req, res) => {
-  res.send({});
-});
+//router.delete('/habit:uuid', async (req, res) => {
+//  res.send({});
+//});
 
 router.get('/habits', async (req, res) => {
   let body = {};
-  let cookie = req.cookies[process.env.COOKIE];
+  let cookie = helpers.extractCookie(req);
 
   if (await queries.cookieExists(cookie)) {
     const user = (await queries.getUser(cookie))['username'];

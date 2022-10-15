@@ -1,5 +1,7 @@
 const codes = require('./codes');
 
+const extractCookie = (req) => req.cookies[process.env.COOKIE];
+
 const updateResponseWithCookie = (cookie, res, status) => {
   if (cookie === null) {
     res.status(codes.INTERNAL_SERVER_ERROR);
@@ -9,6 +11,4 @@ const updateResponseWithCookie = (cookie, res, status) => {
   }
 };
 
-module.exports = {
-  updateResponseWithCookie,
-};
+module.exports = { extractCookie, updateResponseWithCookie };
