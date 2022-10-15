@@ -45,13 +45,13 @@ const Home = () => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Paper elevation = {20}>
+        <Paper elevation = {10} style={{padding: 8, marginTop: 16, marginBottom: 16}}>
             <Header onAdd={() => setShowAddHabit(!showAddHabit)}
             showAdd = {showAddHabit}/>
             {showAddHabit ?
             <AddHabit onAdd = {addHabit}/>:''}
         </Paper>
-        <Paper elevation = {20}>
+        <Paper elevation = {10} style={{padding: 8, marginTop: 16, marginBottom: 16}}>
             <Habits habits = {habits}
             onDelete = {deleteHabit}/>
         </Paper>

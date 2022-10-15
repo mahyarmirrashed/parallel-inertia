@@ -1,5 +1,7 @@
 import { Checkbox, Grid, TextField } from "@mui/material"
 import { useState } from "react"
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const AddHabit = ({onAdd}) => {
 
@@ -50,12 +52,15 @@ const AddHabit = ({onAdd}) => {
 
   return (
     <form className='add-form' onSubmit={onSubmit}>
-      <TextField id="Habit" label="Habit" value = {text} onChange = 
+      <TextField id="Habit" label="Habit Name" margin='normal' MarginLeft={10} value = {text} onChange = 
         {(e) => setText(e.target.value)}/><br/>
-      <TextField id="Description" label="Description" value = {description} onChange = 
+      <TextField id="Description" label="Description" margin='normal' value = {description} onChange = 
         {(e) => setDescription(e.target.value)}/><br/><br/>
       <Grid container spacing={2}>
-        <p>&emsp; Select days: M:</p>
+        <Typography variant='p'>
+          &emsp; Select Days:  
+        </Typography>
+        <p> M:</p>
         <Checkbox label = 'monday' onChange = {(e) => setMonday(e.target.checked)}/>
         <p>T:</p>
         <Checkbox label = 'tuesday' onChange = {(e) => setTuesday(e.target.checked)}/>
@@ -70,10 +75,10 @@ const AddHabit = ({onAdd}) => {
         <p>U:</p>
         <Checkbox label = 'sunday' onChange = {(e) => setSunday(e.target.checked)}/>
       </Grid>
-      <TextField id="Time" label="Time" value = {time} onChange = 
+      <TextField id="Time" label="Time" margin='normal' value = {time} onChange = 
         {(e) => setTime(e.target.value)}/><br/>
       
-      <input type='submit' value='Save Habit' className='btn btn-block'/>
+      <Button type='submit' value='Save Habit' onclick={onSubmit}>Save Habit</Button>
     </form>
   )
 }
