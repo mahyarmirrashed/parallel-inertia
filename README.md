@@ -34,6 +34,11 @@ The home page is where the user will spend most of their time on the app. There 
 
 
 
+### Installation Instructions
+
+To run the server locally, clone this repository. When in the repo, run '''yarn''' in the main folder and run '''yarn''' in the /client folder. This installs the dependencies. Next, when in the main repository folder, run '''yarn start''' to run the server and client concurrently. Then, a browser will open where you can try the app. you can also navigate to http://localhost:3000/login to see the login page.
+
+
 ### Future Development
 
 In the future, we would like to have the application send notifications to the user when it is their time to do the habit. For example, the user would be reminded to work out on Monday, Wednesday, and Friday if that's how they set up their habit.
