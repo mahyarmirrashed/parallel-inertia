@@ -1,23 +1,27 @@
-const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
 const express = require('express');
-const { v4: uuidv4 } = require('uuid');
+const mongoose = require('mongoose');
+const routes = require('./src/routes');
+
+// configure environment variables
+dotenv.config();
 
 // set up backend listening port
 const PORT = process.env.PORT || 4000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 // initialize express.js backend application
 const app = express();
 
-// set up cookie parsing
-app.use(cookieParser());
+mongoose
+  .connect(MONGODB_URI, { useNewUrlParser: true })
+  .then(() => {
+    // attach all api routes
+    app.use('/api', routes);
 
-app.get('/', (req, res) => {
-  console.log(req.cookies);
-  res.cookie('Session-ID', uuidv4());
-  res.send({ message: 'Hello from server!' });
-});
-
-// listen for incoming requests
-app.listen(PORT, () => {
-  console.log(`Application is running at http://localhost:${PORT}`);
-});
+    // listen for incoming requests
+    app.listen(PORT, () => {
+      console.log(`Application is running at http://localhost:${PORT}`);
+    });
+  })
+  .catch(console.error);
