@@ -52,19 +52,19 @@ const AddHabit = ({onAdd}) => {
           &emsp; Select Days:  
         </Typography>
         <p> M:</p>
-        <Checkbox label = 'monday' onChange = {(e) => setMonday(e.target.checked)}/>
+        <Checkbox label = 'monday' checked={monday} onChange = {(e) => setMonday(e.target.checked)}/>
         <p>T:</p>
-        <Checkbox label = 'tuesday' onChange = {(e) => setTuesday(e.target.checked)}/>
+        <Checkbox label = 'tuesday' checked={tuesday} onChange = {(e) => setTuesday(e.target.checked)}/>
         <p>W:</p>
-        <Checkbox label = 'wednesday ' onChange = {(e) => setWednesday(e.target.checked)}/>
+        <Checkbox label = 'wednesday' checked={wednesday} onChange = {(e) => setWednesday(e.target.checked)}/>
         <p>R:</p>
-        <Checkbox label = 'thursday' onChange = {(e) => setThursday(e.target.checked)}/>
+        <Checkbox label = 'thursday' checked={thursday} onChange = {(e) => setThursday(e.target.checked)}/>
         <p>F:</p>
-        <Checkbox label = 'friday' onChange = {(e) => setFriday(e.target.checked)}/>
+        <Checkbox label = 'friday' checked={friday} onChange = {(e) => setFriday(e.target.checked)}/>
         <p>S:</p>
-        <Checkbox label = 'saturday' onChange = {(e) => setSaturday(e.target.checked)}/>
+        <Checkbox label = 'saturday' checked={saturday} onChange = {(e) => setSaturday(e.target.checked)}/>
         <p>U:</p>
-        <Checkbox label = 'sunday' onChange = {(e) => setSunday(e.target.checked)}/>
+        <Checkbox label = 'sunday' checked={saturday} onChange = {(e) => setSunday(e.target.checked)}/>
       </Grid>
       <TextField id="Time" label="Time" margin='normal' value = {time} onChange = 
         {(e) => setTime(e.target.value)}/><br/>
