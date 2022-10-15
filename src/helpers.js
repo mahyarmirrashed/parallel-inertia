@@ -4,7 +4,7 @@ const updateResponseWithCookie = (cookie, res, status) => {
   if (cookie === null) {
     res.status(codes.INTERNAL_SERVER_ERROR);
   } else {
-    res.cookie('Session-ID', cookie);
+    res.cookie(process.env.COOKIE, cookie);
     res.status(status);
   }
 };
