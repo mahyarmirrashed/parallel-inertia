@@ -14,7 +14,7 @@ const AddHabit = ({onAdd}) => {
       return
     }
 
-    //onAdd({text, description, day, time})
+    onAdd({text, description, day, time})
 
     console.log(text)
     console.log(description)

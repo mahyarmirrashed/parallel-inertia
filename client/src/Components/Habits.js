@@ -1,13 +1,13 @@
 import Habit from "./Habit"
 
-const Habits = ({habits, onDelete, onToggle}) => {
+const Habits = ({habits, onDelete}) => {
   
   return (
     <>
       {habits.map((habit) => (
-        <Habit key = {habit.id} task={habit} 
+        <Habit key = {habit.id} habit={habit} 
         onDelete = {onDelete} 
-        onToggle = {onToggle}/>))
+        />))
       }
     </>
   )
