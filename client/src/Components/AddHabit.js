@@ -1,5 +1,7 @@
 import { Checkbox, Grid, TextField } from "@mui/material"
 import { useState } from "react"
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
 const AddHabit = ({onAdd}) => {
 
@@ -25,16 +27,7 @@ const AddHabit = ({onAdd}) => {
 
     onAdd({text, description, monday, tuesday, wednesday, thursday, friday, saturday, sunday, time})
 
-    console.log(text)
-    console.log(description)
-    console.log(time)
-    console.log(monday)
-    console.log(tuesday)
-    console.log(wednesday)
-    console.log(thursday)
-    console.log(friday)
-    console.log(saturday)
-    console.log(sunday)
+    
     setText('')
     setDescription('')
     setMonday(false)
@@ -50,30 +43,33 @@ const AddHabit = ({onAdd}) => {
 
   return (
     <form className='add-form' onSubmit={onSubmit}>
-      <TextField id="Habit" label="Habit" value = {text} onChange = 
+      <TextField id="Habit" label="Habit Name" margin='normal' MarginLeft={10} value = {text} onChange = 
         {(e) => setText(e.target.value)}/><br/>
-      <TextField id="Description" label="Description" value = {description} onChange = 
+      <TextField id="Description" label="Description" margin='normal' value = {description} onChange = 
         {(e) => setDescription(e.target.value)}/><br/><br/>
       <Grid container spacing={2}>
-        <p>&emsp; Select days: M:</p>
-        <Checkbox label = 'monday' onChange = {(e) => setMonday(e.target.checked)}/>
+        <Typography variant='p'>
+          &emsp; Select Days:  
+        </Typography>
+        <p> M:</p>
+        <Checkbox label = 'monday' checked={monday} onChange = {(e) => setMonday(e.target.checked)}/>
         <p>T:</p>
-        <Checkbox label = 'tuesday' onChange = {(e) => setTuesday(e.target.checked)}/>
+        <Checkbox label = 'tuesday' checked={tuesday} onChange = {(e) => setTuesday(e.target.checked)}/>
         <p>W:</p>
-        <Checkbox label = 'wednesday ' onChange = {(e) => setWednesday(e.target.checked)}/>
+        <Checkbox label = 'wednesday' checked={wednesday} onChange = {(e) => setWednesday(e.target.checked)}/>
         <p>R:</p>
-        <Checkbox label = 'thursday' onChange = {(e) => setThursday(e.target.checked)}/>
+        <Checkbox label = 'thursday' checked={thursday} onChange = {(e) => setThursday(e.target.checked)}/>
         <p>F:</p>
-        <Checkbox label = 'friday' onChange = {(e) => setFriday(e.target.checked)}/>
+        <Checkbox label = 'friday' checked={friday} onChange = {(e) => setFriday(e.target.checked)}/>
         <p>S:</p>
-        <Checkbox label = 'saturday' onChange = {(e) => setSaturday(e.target.checked)}/>
+        <Checkbox label = 'saturday' checked={saturday} onChange = {(e) => setSaturday(e.target.checked)}/>
         <p>U:</p>
-        <Checkbox label = 'sunday' onChange = {(e) => setSunday(e.target.checked)}/>
+        <Checkbox label = 'sunday' checked={saturday} onChange = {(e) => setSunday(e.target.checked)}/>
       </Grid>
-      <TextField id="Time" label="Time" value = {time} onChange = 
+      <TextField id="Time" label="Time" margin='normal' value = {time} onChange = 
         {(e) => setTime(e.target.value)}/><br/>
       
-      <input type='submit' value='Save Habit' className='btn btn-block'/>
+      <Button type='submit' value='Save Habit' variant="contained" onclick={onSubmit}>Save Habit</Button>
     </form>
   )
 }

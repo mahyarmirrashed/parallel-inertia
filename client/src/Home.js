@@ -27,14 +27,19 @@ const Home = () => {
   ])
 
   const addHabit = (habit) =>{
-    const id = Math.floor((Math.random * 10000 + 1))
-    const newHabit = {id, ...habit}
-    setHabits([...habits, newHabit])
+    var setHabit = true
+    habits.forEach((e) => {
+      if(habit.text === e.text){
+        alert("Habits must have unique names")
+        setHabit = false
+      }
+    })
+    if(setHabit)
+      setHabits([...habits, habit])
   }
 
-  const deleteHabit = (id) => {
-    console.log(id)
-    setHabits(habits.filter((habits) => habits.id !== id))
+  const deleteHabit = (text) => {
+    setHabits(habits.filter((habits) => habits.text !== text))
   }
     return (
     <Container maxWidth='lg'>
@@ -45,13 +50,13 @@ const Home = () => {
             </Typography>
           </Toolbar>
         </AppBar>
-        <Paper elevation = {20}>
+        <Paper elevation = {10} style={{padding: 8, marginTop: 16, marginBottom: 16}}>
             <Header onAdd={() => setShowAddHabit(!showAddHabit)}
             showAdd = {showAddHabit}/>
             {showAddHabit ?
             <AddHabit onAdd = {addHabit}/>:''}
         </Paper>
-        <Paper elevation = {20}>
+        <Paper elevation = {10} style={{padding: 8, marginTop: 16, marginBottom: 16}}>
             <Habits habits = {habits}
             onDelete = {deleteHabit}/>
         </Paper>

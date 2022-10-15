@@ -2,13 +2,13 @@ import { Button, Checkbox, Typography, Grid } from "@mui/material"
 
 const Habit = ({habit, onDelete}) => {
   return (
-    
+
     <div className={`habit`}>
       <Typography variant="h5">{habit.text}</Typography>
       <Typography variant="h6">
         <Grid>
           M:
-          <Checkbox checked = {habit.monday}></Checkbox>
+          <Checkbox checked = {habit.monday} onChange={() => habit.monday = !habit.monday}></Checkbox>
           T:
           <Checkbox checked = {habit.tuesday}></Checkbox>
           W:
@@ -21,7 +21,7 @@ const Habit = ({habit, onDelete}) => {
           <Checkbox checked = {habit.saturday}></Checkbox>
           U:
           <Checkbox checked = {habit.sunday}></Checkbox>
-          <Button variant="text" onClick = {onDelete} >Delete</Button>
+          <Button variant="text" onClick = {() => onDelete(habit.text)} >Delete</Button>
         </Grid>
         </Typography>
       <Typography>{habit.time}</Typography>
