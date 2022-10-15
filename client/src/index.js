@@ -6,15 +6,26 @@ import Home from "./Home";
 import Login from "./Login";
 //import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 export default function App() {
   return (
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline/>
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
       </Routes>
     </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
