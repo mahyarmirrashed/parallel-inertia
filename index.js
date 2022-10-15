@@ -1,6 +1,8 @@
+const cookieParser = require('cookie-parser');
 const dotenv = require('dotenv');
 const express = require('express');
 const mongoose = require('mongoose');
+
 const routes = require('./src/routes');
 
 // configure environment variables
@@ -18,6 +20,8 @@ mongoose
   .then(() => {
     // attach all api routes
     app.use('/api', routes);
+    // allow parsing cookies from requests
+    app.use(cookieParser());
 
     // listen for incoming requests
     app.listen(PORT, () => {

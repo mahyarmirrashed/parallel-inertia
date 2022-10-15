@@ -2,7 +2,7 @@ import { Button, Checkbox, Typography, Grid, Card, CardHeader, CardContent } fro
 
 const Habit = ({habit, onDelete}) => {
   return (
-    
+
     <div className={`habit`}>
       <Card style={{padding: 8, marginTop: 16, marginBottom: 16}}>
         <CardHeader title={habit.text}/>
