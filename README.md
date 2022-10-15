@@ -22,7 +22,9 @@ The login page is where the user creates an account or logs in to their existing
 
 #### Home Page
 
-The home page is where the user will spend most of their time on the app. There is a form to create a new habit, as well as a place to view all of the user's habits, and check off if they were completed or not. Each habit has a Name, Description, Days of the week, and Time field, to remind the user when they plan on reinforcing their habits. The user can also check off boxes like a checklist to keep track of what they have done in the past week.
+The home page is where the user will spend most of their time on the app. There is a form to create a new habit, as well as a place to view all of the user's habits, and check off if they were completed or not. Each habit has a Name, Description, Days of the week, and Time field, to remind the user when they plan on reinforcing their habits. The user can also check off boxes like a checklist to keep track of what they have done in the past week. A screenshot of the home page is shown below:
+
+![Home Page](./res/home_page.png)
 
 ### Backend
 
