@@ -1,11 +1,31 @@
 const express = require('express');
 const router = express.Router();
 
-router.post('/login', async (req, res) => {
-  res.send({});
-});
+const codes = require('./codes');
+const helpers = require('./helpers');
+const queries = require('./queries');
 
-router.get('/habit:id', async (req, res) => {
+router.post('/login', async (_, res) => {
+  if (await queries.userExists()) {
+    if (await queries.userIsValid()) {
+      const cookie = await queries.createCookie();
+
+      helpers.updateResponseWithCookie(cookie, res, codes.OK);
+    } else {
+      res.status(codes.UNAUTHORIZED);
+    }
+  } else {
+    try {
+      await queries.createUser();
+
+      const cookie = await queries.createCookie();
+
+      helpers.updateResponseWithCookie(cookie, res, codes.CREATED);
+    } catch {
+      res.status(codes.BAD_REQUEST);
+    }
+  }
+
   res.send({});
 });
 
