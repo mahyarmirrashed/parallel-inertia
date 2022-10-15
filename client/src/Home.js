@@ -27,9 +27,15 @@ const Home = () => {
   ])
 
   const addHabit = (habit) =>{
-    const id = Math.floor((Math.random * 10000 + 1))
-    const newHabit = {id, ...habit}
-    setHabits([...habits, newHabit])
+    var setHabit = true
+    habits.forEach((e) => {
+      if(habit.text === e.text){
+        alert("Habits must have unique names")
+        setHabit = false
+      }
+    })
+    if(setHabit)
+      setHabits([...habits, habit])
   }
 
   const deleteHabit = (text) => {
