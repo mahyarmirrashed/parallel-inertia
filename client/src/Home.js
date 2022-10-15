@@ -15,10 +15,14 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { maxHeight, padding, spacing } from '@mui/system';
+import AddHabit from './Components/AddHabit';
+import Habits from './Components/Habits';
+import Header from './Components/Header';
 
 
 
 const Home = () => {
+  const[showAddHabit, setShowAddHabit] = useState(false)
     return (
     <Container maxWidth='lg'>
         <AppBar position='static'>
@@ -29,7 +33,11 @@ const Home = () => {
           </Toolbar>
         </AppBar>
         <Paper elevation = {20}>
-            
+            <Header onAdd={() => setShowAddHabit(!showAddHabit)}
+            showAdd = {showAddHabit}/>
+            {showAddHabit ?
+            <AddHabit/>:''}
+
         </Paper>
     </Container>
     )
