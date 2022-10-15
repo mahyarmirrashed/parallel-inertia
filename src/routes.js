@@ -9,11 +9,23 @@ router.post('/login', async (req, res) => {
   res.send({});
 });
 
+router.get('/habit', async (req, res) => {
+  res.send({});
+});
+
 router.post('/habit', async (req, res) => {
   res.send({});
 });
 
-router.post('/log', async (req, res) => {
+router.patch('/habit', async (req, res) => {
+  res.send({});
+});
+
+router.delete('/habit', async (req, res) => {
+  res.send({});
+});
+
+router.get('/habits', async (req, res) => {
   res.send({});
 });
 
