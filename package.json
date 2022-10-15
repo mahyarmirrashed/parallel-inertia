@@ -6,5 +6,8 @@
   "repository": "https://github.com/mahyarmirrashed/parallel-inertia",
   "author": "Mahyar Mirrashed <mah.mirr@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "devDependencies": {
+    "commitizen": "^4.2.5"
+  }
 }
