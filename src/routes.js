@@ -9,7 +9,7 @@ router.post('/login', async (req, res) => {
   res.send({});
 });
 
-router.post('/fetch', async (req, res) => {
+router.post('/habit', async (req, res) => {
   res.send({});
 });
 
