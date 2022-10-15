@@ -3,8 +3,8 @@ const mongoose = require('mongoose');
 const DAYS_IN_WEEK = 7;
 
 const schema = mongoose.Schema({
+  uuid: { type: String, required: true, unique: true },
   username: { type: String, required: true },
-  id: { type: String, required: true },
   name: { type: String, required: true },
   description: { type: String, required: true },
   daysOfWeek: {
