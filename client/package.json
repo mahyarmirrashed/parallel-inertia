@@ -10,11 +10,21 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "axios": "^0.25.0",
+    "http": "^0.0.1-security",
+    "https": "^1.0.0",
     "react": "^18.2.0",
+    "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.0"
+  },
+  "browser": {
+    "http": false,
+    "https": false,
+    "axios": false,
+    "crypto": false
   },
   "scripts": {
     "start": "react-scripts start",
