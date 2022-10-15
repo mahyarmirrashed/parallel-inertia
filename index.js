@@ -14,7 +14,7 @@ const MONGODB_URI = process.env.MONGODB_URI;
 const app = express();
 
 mongoose
-  .connect(MONGODB_URI, { useNewUrlParser: true })
+  .connect(MONGODB_URI)
   .then(() => {
     // attach all api routes
     app.use('/api', routes);
