@@ -18,26 +18,23 @@ import { maxHeight, padding, spacing } from '@mui/system';
 import AddHabit from './Components/AddHabit';
 import Habits from './Components/Habits';
 import Header from './Components/Header';
-import Habit from './Components/Habit';
 
 
 
 const Home = () => {
   const[showAddHabit, setShowAddHabit] = useState(false)
   const [habits, setHabits] = useState([
-    {
-      id: 1,
-      text: 'Doctors Appointment',
-      description: 'This is an appointment',
-      day: 'Feb 5th',
-      time: '2:30pm'
-    }
   ])
 
   const addHabit = (habit) =>{
-    const id = Math.floor((Math.random * 1000000 + 1))
+    const id = Math.floor((Math.random * 10000 + 1))
     const newHabit = {id, ...habit}
     setHabits([...habits, newHabit])
+  }
+
+  const deleteHabit = (id) => {
+    console.log(id)
+    setHabits(habits.filter((habits) => habits.id !== id))
   }
     return (
     <Container maxWidth='lg'>
@@ -55,7 +52,8 @@ const Home = () => {
             <AddHabit onAdd = {addHabit}/>:''}
         </Paper>
         <Paper elevation = {20}>
-            <Habits habits = {habits}/>
+            <Habits habits = {habits}
+            onDelete = {deleteHabit}/>
         </Paper>
     </Container>
     )
