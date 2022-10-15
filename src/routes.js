@@ -42,7 +42,20 @@ router.delete('/habit:id', async (req, res) => {
 });
 
 router.get('/habits', async (req, res) => {
-  res.send({});
+  let body = {};
+  let cookie = req.cookies[process.env.COOKIE];
+
+  if (await queries.cookieExists(cookie)) {
+    const user = (await queries.getUser(cookie))['username'];
+
+    body = await queries.getHabits();
+
+    res.status(codes.OK);
+  } else {
+    res.status(codes.UNAUTHORIZED);
+  }
+
+  res.send(body);
 });
 
 module.exports = router;

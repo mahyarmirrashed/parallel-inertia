@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require('uuid');
 
 const Cookie = require('./models/Cookie');
+const Habit = require('./models/Habit');
 const User = require('./models/User');
 
 const createCookie = async (username) => {
@@ -22,6 +23,13 @@ const createCookie = async (username) => {
 const createUser = async (username, password) =>
   new User({ username: username, password: password }).save();
 
+const cookieExists = async (cookie) =>
+  Cookie.findOne({ cookie: cookie }).exec() !== null;
+
+const getHabits = async (username) => Habit.find({ username: username }).exec();
+
+const getUser = async (cookie) => Cookie.findOne({ cookie: cookie }).exec();
+
 const userExists = async (username) =>
   User.findOne({ username: username }).exec() !== null;
 
@@ -31,6 +39,9 @@ const userIsValid = async (username, password) =>
 module.exports = {
   createCookie,
   createUser,
+  cookieExists,
+  getHabits,
+  getUser,
   userExists,
   userIsValid,
 };
