@@ -28,17 +28,23 @@ The home page is where the user will spend most of their time on the app. There 
 
 ### Backend
 
-
+The backend uses Nodejs, Expressjs, and MongoDB to manage the states of the various entities. The backend offers API endpoints to the client, which gives the user the ability to register, login, update and create habits. This information is stored in the MongoDB using CRUD operations.
 
 ### Shortcomings/Bugs
 
+We were able to create a working frontend and backend, however not able to fully link both together. The frontend works and is capable of creating and deleting new habits, but those updates are not sent to the backend. The backend is capable of interfacing with the database, though just requires that connection with the client to complete funtionality. 
 
+Another goal that we would have wished to implement was the updating of completed habits. The backend offers state changes for the habits saved, but would just have required client information function.
 
-### Installation Instructions
+### Installation Instructions and Script
 
 To run the server locally, clone this repository. When in the repo, run '''yarn''' in the main folder and run '''yarn''' in the /client folder. This installs the dependencies. Next, when in the main repository folder, run '''yarn start''' to run the server and client concurrently. Then, a browser will open where you can try the app. you can also navigate to http://localhost:3000/login to see the login page.
 
 
 ### Future Development
 
-In the future, we would like to have the application send notifications to the user when it is their time to do the habit. For example, the user would be reminded to work out on Monday, Wednesday, and Friday if that's how they set up their habit.
+If we had more time available, we would have cleaned up any bugs with our project, and made sure that the app is working as intended. 
+
+In the future, we would like to have the application to send notifications to the user when it is their time to do the habit. For example, the user would be reminded to work out on Monday, Wednesday, and Friday if that's how they set up their habit.
+
+We were also looking to allow users to share habits with others, so that people can be ranked against their friends and bring in a social component to the motivation. 
