@@ -9,19 +9,19 @@ router.post('/login', async (req, res) => {
   res.send({});
 });
 
-router.get('/habit', async (req, res) => {
+router.get('/habit:id', async (req, res) => {
   res.send({});
 });
 
-router.post('/habit', async (req, res) => {
+router.post('/habit:id', async (req, res) => {
   res.send({});
 });
 
-router.patch('/habit', async (req, res) => {
+router.patch('/habit:id', async (req, res) => {
   res.send({});
 });
 
-router.delete('/habit', async (req, res) => {
+router.delete('/habit:id', async (req, res) => {
   res.send({});
 });
 
