@@ -69,7 +69,7 @@ const AddHabit = ({onAdd}) => {
       <TextField id="Time" label="Time" margin='normal' value = {time} onChange = 
         {(e) => setTime(e.target.value)}/><br/>
       
-      <Button type='submit' value='Save Habit' onclick={onSubmit}>Save Habit</Button>
+      <Button type='submit' value='Save Habit' variant="contained" onclick={onSubmit}>Save Habit</Button>
     </form>
   )
 }
