@@ -18,7 +18,7 @@ The front end of the app consists of two pages:
 
 The login page is where the user creates an account or logs in to their existing account. The user submits their username and password, and they are sent to the backend for validation. A screenshot of the clean login design is shown below:
 
-![Login Page](./login_page.png)
+![Login Page](./res/login_page.png)
 
 #### Home Page
 
