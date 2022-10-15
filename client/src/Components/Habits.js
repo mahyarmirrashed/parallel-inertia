@@ -5,7 +5,7 @@ const Habits = ({habits, onDelete}) => {
   return (
     <>
       {habits.map((habit) => (
-        <Habit key = {habit.id} habit={habit} 
+        <Habit key = {habit.text} habit={habit} 
         onDelete = {onDelete} 
         />))
       }
