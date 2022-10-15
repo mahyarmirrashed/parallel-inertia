@@ -21,7 +21,7 @@ const Habit = ({habit, onDelete}) => {
           <Checkbox checked = {habit.saturday}></Checkbox>
           U:
           <Checkbox checked = {habit.sunday}></Checkbox>
-          <Button variant="text" onClick = {onDelete} >Delete</Button>
+          <Button variant="text" onClick = {() => onDelete(habit.text)} >Delete</Button>
         </Grid>
         </Typography>
       <Typography>{habit.time}</Typography>

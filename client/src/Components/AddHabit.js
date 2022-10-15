@@ -27,16 +27,7 @@ const AddHabit = ({onAdd}) => {
 
     onAdd({text, description, monday, tuesday, wednesday, thursday, friday, saturday, sunday, time})
 
-    console.log(text)
-    console.log(description)
-    console.log(time)
-    console.log(monday)
-    console.log(tuesday)
-    console.log(wednesday)
-    console.log(thursday)
-    console.log(friday)
-    console.log(saturday)
-    console.log(sunday)
+    
     setText('')
     setDescription('')
     setMonday(false)

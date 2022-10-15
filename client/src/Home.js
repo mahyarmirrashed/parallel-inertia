@@ -32,9 +32,8 @@ const Home = () => {
     setHabits([...habits, newHabit])
   }
 
-  const deleteHabit = (id) => {
-    console.log(id)
-    setHabits(habits.filter((habits) => habits.id !== id))
+  const deleteHabit = (text) => {
+    setHabits(habits.filter((habits) => habits.text !== text))
   }
     return (
     <Container maxWidth='lg'>
