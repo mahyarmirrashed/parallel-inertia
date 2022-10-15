@@ -56,11 +56,12 @@ const Login = () => {
             console.log(resp)
         })*/
 
-        fetch('http://localhost:4000/api/login', options)
+        /*fetch('http://localhost:4000/api/login', options)
           .then((res) => {
               console.log(res)
-          })
+          })*/
 
+        window.close()
         window.open("/")
     }
 
