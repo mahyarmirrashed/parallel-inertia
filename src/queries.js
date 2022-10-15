@@ -39,6 +39,13 @@ const getHabits = async (username) => Habit.find({ username: username }).exec();
 
 const getUser = async (cookie) => Cookie.findOne({ cookie: cookie }).exec();
 
+const habitExists = async (uuid) =>
+  Habit.findOne({ uuid: uuid }).exec() !== null;
+
+const updateHabitLoggedDays = async (uuid, loggedDays) => {
+  //
+};
+
 const userExists = async (username) =>
   User.findOne({ username: username }).exec() !== null;
 
@@ -52,6 +59,8 @@ module.exports = {
   cookieExists,
   getHabits,
   getUser,
+  habitExists,
+  updateHabitLoggedDays,
   userExists,
   userIsValid,
 };

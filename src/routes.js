@@ -57,22 +57,37 @@ router.post('/habit', async (req, res) => {
   res.send(body);
 });
 
-//router.patch('/habit:uuid', async (req, res) => {
-//  res.send({});
-//});
+router.patch('/habit:uuid', async (req, res) => {
+  let uuid = req.params.uuid;
+  let loggedDays = req.body.loggedDays;
+  let cookie = helpers.extractCookie(req);
 
-//router.delete('/habit:uuid', async (req, res) => {
-//  res.send({});
-//});
+  if (await queries.cookieExists(cookie)) {
+    if (await queries.habitExists(uuid)) {
+      try {
+        await queries.updateHabitLoggedDays(uuid, loggedDays);
+        res.status(codes.OK);
+      } catch {
+        res.status(codes.INTERNAL_SERVER_ERROR);
+      }
+    } else {
+      res.status(codes.BAD_REQUEST);
+    }
+  } else {
+    res.status(codes.UNAUTHORIZED);
+  }
+
+  res.send({});
+});
 
 router.get('/habits', async (req, res) => {
   let body = {};
   let cookie = helpers.extractCookie(req);
 
   if (await queries.cookieExists(cookie)) {
-    const user = (await queries.getUser(cookie))['username'];
+    const user = await queries.getUser(cookie);
 
-    body = await queries.getHabits();
+    body = await queries.getHabits(user['username']);
 
     res.status(codes.OK);
   } else {
