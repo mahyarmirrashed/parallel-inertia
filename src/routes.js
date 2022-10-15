@@ -44,7 +44,7 @@ router.post('/habit', async (req, res) => {
         req.body.daysOfWeek,
       );
 
-      let body = { habitId: habit.uuid };
+      body = { habitId: habit.uuid };
 
       res.status(codes.CREATED);
     } catch {
