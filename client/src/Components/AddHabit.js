@@ -64,7 +64,7 @@ const AddHabit = ({onAdd}) => {
         <p>S:</p>
         <Checkbox label = 'saturday' checked={saturday} onChange = {(e) => setSaturday(e.target.checked)}/>
         <p>U:</p>
-        <Checkbox label = 'sunday' checked={saturday} onChange = {(e) => setSunday(e.target.checked)}/>
+        <Checkbox label = 'sunday' checked={sunday} onChange = {(e) => setSunday(e.target.checked)}/>
       </Grid>
       <TextField id="Time" label="Time" margin='normal' value = {time} onChange = 
         {(e) => setTime(e.target.value)}/><br/>
