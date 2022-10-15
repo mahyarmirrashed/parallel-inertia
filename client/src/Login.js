@@ -15,10 +15,10 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { maxHeight, padding, spacing } from '@mui/system';
-//import axios from 'axios';
+//import {axios} from 'axios';
 //import https from 'https';
 
-const http = require('http');
+//const http = require('http');
 //const axios = require('axios').default;
 //var crypto = require('crypto');
 
@@ -34,11 +34,11 @@ const Login = () => {
         //clean_password = crypto.createHash('sha256').update(clean_password).digest('base64')
         console.log(clean_password)
         const options = {
-            hostname: 'localhost',
-            port: 4000,
-            path: '/login',
             method: 'POST',
-            data: {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
                 username: clean_username,
                 password: clean_password
             }
@@ -55,7 +55,12 @@ const Login = () => {
         /*http.request(options, (resp) => {
             console.log(resp)
         })*/
-        window.close()
+
+        fetch('http://localhost:4000/api/login', options)
+          .then((res) => {
+              console.log(res)
+          })
+
         window.open("/")
     }
 
