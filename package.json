@@ -17,6 +17,7 @@
   },
   "scripts": {
     "client": "yarn --cwd client run start",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "server": "nodemon index"
   }
 }
