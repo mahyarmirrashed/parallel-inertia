@@ -18,11 +18,27 @@ import { maxHeight, padding, spacing } from '@mui/system';
 import AddHabit from './Components/AddHabit';
 import Habits from './Components/Habits';
 import Header from './Components/Header';
+import Habit from './Components/Habit';
 
 
 
 const Home = () => {
   const[showAddHabit, setShowAddHabit] = useState(false)
+  const [habits, setHabits] = useState([
+    {
+      id: 1,
+      text: 'Doctors Appointment',
+      description: 'This is an appointment',
+      day: 'Feb 5th',
+      time: '2:30pm'
+    }
+  ])
+
+  const addHabit = (habit) =>{
+    const id = Math.floor((Math.random * 1000000 + 1))
+    const newHabit = {id, ...habit}
+    setHabits([...habits, newHabit])
+  }
     return (
     <Container maxWidth='lg'>
         <AppBar position='static'>
@@ -36,8 +52,10 @@ const Home = () => {
             <Header onAdd={() => setShowAddHabit(!showAddHabit)}
             showAdd = {showAddHabit}/>
             {showAddHabit ?
-            <AddHabit/>:''}
-
+            <AddHabit onAdd = {addHabit}/>:''}
+        </Paper>
+        <Paper elevation = {20}>
+            <Habits habits = {habits}/>
         </Paper>
     </Container>
     )

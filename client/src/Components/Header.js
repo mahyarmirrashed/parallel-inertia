@@ -1,5 +1,5 @@
 import { Button } from "@mui/material"
-const Header = ({title, onAdd, showAdd}) => {
+const Header = ({title, onAdd}) => {
   return (
     <header className = 'header'>
       <h1>{title}</h1>

@@ -1,9 +1,10 @@
 
-const Habit = ({habit, onDelete, onToggle}) => {
+const Habit = ({habit, onDelete}) => {
   return (
-    <div className={`habit ${habit.reminder ? 'reminder' : ''}`} onDoubleClick={() => onToggle(habit.id)}>
+    <div className={`habit`}>
       <h3>{habit.text}</h3>
-      <p>{habit.day}</p>
+      <h4>{habit.day} at { habit.time}</h4>
+      <p>{habit.description}</p>
     </div>
   )
 }
