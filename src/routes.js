@@ -29,7 +29,7 @@ router.post('/login', async (_, res) => {
   res.send({});
 });
 
-router.post('/habit:id', async (req, res) => {
+router.post('/habit', async (req, res) => {
   res.send({});
 });
 
